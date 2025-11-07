@@ -26,9 +26,9 @@ jobs:
         dotnet-quality: 'preview'
     #Build/Test/Publish the .net project
     - name: Build with dotnet
-      run: dotnet build ./eShopOnWeb.sln --configuration Release
+      run: dotnet build ./eShopOnWeb.sln --configuration Release /p:NoWarn=MSB3277
     - name: Test with dotnet
-      run: dotnet test ./eShopOnWeb.sln --configuration Release
+      run: dotnet test ./eShopOnWeb.sln --configuration Release /p:NoWarn=MSB3277
     - name: dotnet publish
       run: |
         dotnet publish ./src/Web/Web.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
